@@ -121,6 +121,7 @@ go
 
 
 -- Creating view to store data for visualization
+	
 alter view percent_population_vaccinated as 
 select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
 sum(convert(bigint,vac.new_vaccinations)) over (partition by dea.location order by dea.location, dea.date) as rolling_people_vaccinated
